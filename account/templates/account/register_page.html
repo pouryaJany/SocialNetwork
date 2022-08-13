@@ -3,5 +3,10 @@
 {% block page_name %} <h1><center class="text-info"> register page </center></h1>{% endblock %}
 {% block content %}
     <hr>
-    <h1>hello from register page</h1>
+    <form>
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="register" class="btn btn-success">
+    </form>
+
 {% endblock %}
