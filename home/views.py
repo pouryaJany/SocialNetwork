@@ -6,4 +6,4 @@ from django.http import HttpResponse
 
 
 def home(request):
-    return HttpResponse("hello from django baby")
+    return render(request, 'home/index.html')
