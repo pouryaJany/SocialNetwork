@@ -6,5 +6,8 @@ class RegistrationUserForm(forms.Form):
         attrs={'class': 'form-control',
                'placeholder': 'pourya'}))
 
-    email = forms.EmailField()
+    email = forms.EmailField(widget=forms.EmailInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'test@test.com'
+    }))
     password = forms.CharField()
