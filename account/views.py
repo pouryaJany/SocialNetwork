@@ -20,7 +20,7 @@ class RegisterUserView(View):
         form = RegistrationUserForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
-            User.objects.create_user(cd["username"], cd["email"], cd["password"])
+            User.objects.create_user(cd["username"], cd["email"], cd["password1"])
             messages.success(request, "you registered successfully", "success")
             return redirect('home:home')
         else:

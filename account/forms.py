@@ -12,7 +12,12 @@ class RegistrationUserForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'test@test.com'
     }))
-    password = forms.CharField(widget=forms.PasswordInput(attrs={
+    password1 = forms.CharField(widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'password'
+    }))
+
+    password2 = forms.CharField(widget=forms.PasswordInput(attrs={
         'class': 'form-control',
         'placeholder': 'password'
     }))
@@ -30,3 +35,9 @@ class RegistrationUserForm(forms.Form):
         if user:
             raise ValidationError("this username is already exists")
         return username
+
+    def clean(self):
+        pass1 = self.cleaned_data.get("password1")
+        pass2 = self.cleaned_data.get("password2")
+        if pass2 and pass1 and pass1 != pass2:
+            raise ValidationError("passwords must be same")
