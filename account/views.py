@@ -25,3 +25,11 @@ class RegisterUserView(View):
             return redirect('home:home')
         else:
             return render(request, 'account/register_page.html', {'form': form})
+
+
+class LoginUserView(View):
+    def get(self, request):
+        return render(request, 'account/login_page.html')
+
+    def post(self, request):
+        pass
