@@ -3,6 +3,7 @@ from django.views import View
 from .forms import RegistrationUserForm, UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
+from django.contrib.auth import authenticate, login
 
 
 # Create your views here.
@@ -36,4 +37,14 @@ class LoginUserView(View):
         return render(request, 'account/login_page.html', context)
 
     def post(self, request):
-        pass
+        form = UserLoginForm(request.POST)
+        if form.is_valid():
+            cd = form.cleaned_data
+            user = authenticate(username=cd["username"], password=cd["password"])
+            if user is not None:
+                messages.success(request, "you logged in successfully", "success")
+                login(request, user)
+                return redirect('home:home')
+            else:
+                messages.error(request, "invalid username or password", "danger")
+                return redirect('account:login')
