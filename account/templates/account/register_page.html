@@ -4,7 +4,7 @@
 {% block content %}
     <hr>
 
-    <form class="col-md-6">
+    <form class="col-md-6" method="post">
         {% csrf_token %}
         {{ form.as_p }}
         <input type="submit" value="register" class="btn btn-success">
