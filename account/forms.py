@@ -48,4 +48,7 @@ class UserLoginForm(forms.Form):
         'class': 'form-control',
         'placeholder': 'pourya'
     }))
-    password = forms.CharField()
+    password = forms.CharField(max_length=200, widget=forms.PasswordInput(attrs={
+        'class': 'form-control',
+        'placeholder': '1234'
+    }))
