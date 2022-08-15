@@ -19,7 +19,7 @@ class RegistrationUserForm(forms.Form):
 
     def clean_email(self):
         email = self.cleaned_data["email"]
-        user = User.objects.filter(email=email)
+        user = User.objects.filter(email=email).exists()
         if user:
             raise ValidationError("this email is already exists")
         return email
