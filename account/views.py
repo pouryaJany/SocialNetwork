@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views import View
-from .forms import RegistrationUserForm
+from .forms import RegistrationUserForm, UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
 
@@ -29,7 +29,11 @@ class RegisterUserView(View):
 
 class LoginUserView(View):
     def get(self, request):
-        return render(request, 'account/login_page.html')
+        form = UserLoginForm()
+        context = {
+            'form': form
+        }
+        return render(request, 'account/login_page.html', context)
 
     def post(self, request):
         pass
