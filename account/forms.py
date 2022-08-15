@@ -44,5 +44,8 @@ class RegistrationUserForm(forms.Form):
 
 
 class UserLoginForm(forms.Form):
-    username = forms.CharField(max_length=100)
+    username = forms.CharField(max_length=100, widget=forms.TextInput(attrs={
+        'class': 'form-control',
+        'placeholder': 'pourya'
+    }))
     password = forms.CharField()
