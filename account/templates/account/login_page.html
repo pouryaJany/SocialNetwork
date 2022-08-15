@@ -1,9 +1,16 @@
 {% extends 'base.html' %}
 {% block title %} login {% endblock %}
-{% block page_name %} <h1><center class="text-info"> login page </center></h1>{% endblock %}
+{% block page_name %}
+    <h1>
+        <center class="text-info"> login page</center>
+    </h1>{% endblock %}
 {% block content %}
     <hr>
 
-
+    <form class="col-md-6" method="post">
+        {% csrf_token %}
+        {{ form.as_p }}
+        <input type="submit" value="login" class="btn btn-primary">
+    </form>
 
 {% endblock %}
