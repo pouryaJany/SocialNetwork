@@ -41,3 +41,7 @@ class RegistrationUserForm(forms.Form):
         pass2 = self.cleaned_data.get("password2")
         if pass2 and pass1 and pass1 != pass2:
             raise ValidationError("passwords must be same")
+
+
+class UserLoginForm(forms.Form):
+    username = forms.CharField(max_length=100)
