@@ -45,7 +45,9 @@
                     <span class="visually-hidden">Toggle Dropdown</span>
                 </button>
                 <ul class="dropdown-menu dropdown-menu-dark">
-                    <li><a class="dropdown-item" href="{% url 'account:login' %}">login</a></li>
+                    {% if user.is_authenticated == true %}
+                        <li><a class="dropdown-item" href="{% url 'account:login' %}">login</a></li>
+                    {% endif %}
                     <li><a class="dropdown-item" href="{% url 'account:register' %}">register</a></li>
                     <li>
                         <hr class="dropdown-divider">
