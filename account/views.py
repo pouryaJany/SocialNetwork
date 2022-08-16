@@ -3,7 +3,7 @@ from django.views import View
 from .forms import RegistrationUserForm, UserLoginForm
 from django.contrib.auth.models import User
 from django.contrib import messages
-from django.contrib.auth import authenticate, login
+from django.contrib.auth import authenticate, login, logout
 
 
 # Create your views here.
@@ -54,3 +54,10 @@ class LoginUserView(View):
             else:
                 messages.error(request, "invalid username or password", "danger")
                 return redirect('account:login')
+
+
+class LogoutUserView(View):
+    def get(self, request):
+        logout(request)
+        messages.success(request, "you logged out successfully", "success")
+        return redirect('account:login')
