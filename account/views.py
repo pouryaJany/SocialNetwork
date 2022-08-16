@@ -10,6 +10,12 @@ from django.contrib.auth import authenticate, login, logout
 
 
 class RegisterUserView(View):
+
+    def dispatch(self, request, *args, **kwargs):
+        if request.user.is_authenticated:
+            return redirect('home:home')
+        return super().dispatch(request, *args, **kwargs)
+
     def get(self, request):
         form = RegistrationUserForm()
         context = {
