@@ -6,6 +6,7 @@ from django.contrib import messages
 from django.contrib.auth import authenticate, login, logout
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+
 # Create your views here.
 
 
@@ -67,3 +68,8 @@ class LogoutUserView(LoginRequiredMixin, View):
         logout(request)
         messages.success(request, "you logged out successfully", "success")
         return redirect('account:login')
+
+
+class UserProfileView(LoginRequiredMixin, View):
+    def get(self, request):
+        return render(request, 'account/profile.html')
