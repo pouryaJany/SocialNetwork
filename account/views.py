@@ -17,14 +17,16 @@ class RegisterUserView(View):
             return redirect('home:home')
         return super().dispatch(request, *args, **kwargs)
 
-    def get(self, request):
+    @staticmethod
+    def get(request):
         form = RegistrationUserForm()
         context = {
             'form': form
         }
         return render(request, 'account/register_page.html', context)
 
-    def post(self, request):
+    @staticmethod
+    def post(request):
         form = RegistrationUserForm(request.POST)
         if form.is_valid():
             cd = form.cleaned_data
