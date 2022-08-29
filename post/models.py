@@ -6,11 +6,11 @@ from django.contrib.auth.models import User
 
 
 class Image(models.Model):
-    image1 = models.ImageField()
-    image2 = models.ImageField(null=True, blank=True)
-    image3 = models.ImageField(null=True, blank=True)
-    image4 = models.ImageField(null=True, blank=True)
-    image5 = models.ImageField(null=True, blank=True)
+    image1 = models.ImageField(upload_to="post/%Y/")
+    image2 = models.ImageField(null=True, blank=True, upload_to="post/%Y/")
+    image3 = models.ImageField(null=True, blank=True, upload_to="post/%Y/")
+    image4 = models.ImageField(null=True, blank=True, upload_to="post/%Y/")
+    image5 = models.ImageField(null=True, blank=True, upload_to="post/%Y/")
 
 
 class Post(models.Model):
