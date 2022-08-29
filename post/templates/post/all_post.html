@@ -2,7 +2,19 @@
 
 
 {% block content %}
-    {% for post in posts %}
-        <h3>{{ post.title }}</h3>
-    {% endfor %}
+    <div class="card">
+        <div class="card-header">
+            posts
+        </div>
+        {% for post in posts %}
+            <div class="card-body">
+                <a href="#" style="margin-top: 15px; text-decoration: none;">{{ post.title }}</a>
+            </div>
+        {% endfor %}
+        {% if posts.count == 0 %}
+            <div class="card-body">
+            <p>we have 0 posts</p>
+            </div>
+        {% endif %}
+    </div>
 {% endblock %}
