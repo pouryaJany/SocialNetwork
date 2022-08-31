@@ -2,13 +2,15 @@
 
 
 {% block content %}
-    <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+  <a class="btn btn-success" style="border-radius: 50%;">{{ post.user }}</a>
+    <div id="carouselExampleControls" class="carousel slide card text-bg-dark" data-bs-ride="carousel" style="margin-top: 30px;">
         <div class="carousel-inner">
             {% for i in images %}
                 {% if i.url != None %}
-                <div class="carousel-item active">
-                    <img src="{{ i.url }}" alt="" class="d-block w-100">
-                </div>
+                    <div class="carousel-item active">
+                        <center><img src="{{ i.url }}" alt="" style="width: 40%; height: 350px; margin-top: 15px;">
+                        </center>
+                    </div>
                 {% endif %}
             {% endfor %}
         </div>
@@ -23,4 +25,12 @@
             <span class="visually-hidden">Next</span>
         </button>
     </div>
+    <div class="card text-bg-dark mb-3" style="margin-top: 30px;">
+        <div class="card-header">Caption</div>
+        <div class="card-body">
+            <h5 class="card-title">{{ post.title }}</h5>
+            <p class="card-text">{{ post.caption }}</p>
+            <small>{{ post.created }}</small>
+        </div>
+
 {% endblock %}
