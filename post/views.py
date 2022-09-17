@@ -1,4 +1,4 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.views import View
 from .models import Post
 
@@ -28,3 +28,10 @@ class ShowDetailPost(View):
         }
 
         return render(request, 'post/detail_post.html', context)
+
+
+class DeletePost(View):
+    @staticmethod
+    def get(request, post_id):
+        Post.objects.get(id=post_id).delete()
+        return redirect("account:profile", user_id=request.user.id)
