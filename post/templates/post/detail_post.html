@@ -31,6 +31,9 @@
             <h5 class="card-title">{{ post.title }}</h5>
             <p class="card-text">{{ post.caption }}</p>
             <small>{{ post.created }}</small>
+            {% if request.user.is_superuser or request.user.id == post.user.id %}
+            <p style="margin-top: 30px;"><a href="#" class="btn btn-danger">Delete</a></p>
+            {% endif %}
         </div>
 
 {% endblock %}
