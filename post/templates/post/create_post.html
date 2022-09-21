@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+
+
+{% block content %}
+    <form method="post" novalidate enctype='multipart/form-data'>
+        {% csrf_token %}
+        {{ form1 }}
+        {{ form2 }}
+        <input type="submit" value="create" class="btn btn-primary" style="margin-left: 750px; margin-top: 35px;">
+    </form>
+{% endblock %}

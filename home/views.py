@@ -10,5 +10,6 @@ from django.views import View
 #     return render(request, 'home/index.html')
 
 class HomeView(View):
-    def get(self, request):
+    @staticmethod
+    def get(request):
         return render(request, 'home/index.html')
