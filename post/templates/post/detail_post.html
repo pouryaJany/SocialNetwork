@@ -32,7 +32,8 @@
             <p class="card-text">{{ post.caption }}</p>
             <small>{{ post.created }}</small>
             {% if request.user.is_superuser or request.user.id == post.user.id %}
-            <p style="margin-top: 30px;"><a href="{% url 'post:delete-post' post.id %}" class="btn btn-danger">Delete</a></p>
+            <p style="margin-top: 30px;"><a href="{% url 'post:delete-post' post.id %}" class="btn btn-danger">Delete</a>
+                <a href="{% url 'post:update-post' post.id %}" class="btn btn-primary">Update</a></p>
             {% endif %}
         </div>
 
