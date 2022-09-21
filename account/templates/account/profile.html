@@ -2,9 +2,25 @@
 {% block title %} login {% endblock %}
 {% block page_name %}
     <h1>
-        <center class="text-info"> profile </center>
+        <center class="text-info"> profile</center>
     </h1>{% endblock %}
 {% block content %}
     <hr>
-    <h3><center> {{ web_user.username|capfirst  }} Profile </center></h3>
+    <h3>
+        <center> {{ web_user.username|capfirst }} Profile</center>
+    </h3>
+    {% if request.user.id == web_user.id or request.user.is_superuser %}
+        <a style="margin-bottom: 15px;" href="{% url 'post:create-post' %}" class="btn btn-primary"> Create Post </a>
+    {% endif %}
+    {% for post in posts %}
+        <div class="card">
+        <div class="card-header">
+            {{ post.title }}
+        </div>
+
+        <div class="card-body">
+            {{ post.created }}
+        </div>
+    {% endfor %}
+</div>
 {% endblock %}
