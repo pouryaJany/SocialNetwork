@@ -89,4 +89,5 @@ class UserPasswordResetView(auth_view.PasswordResetView):
     email_template_name = 'account/password_reset_email.html'
 
 
-
+class UserPasswordResetDoneView(auth_view.PasswordResetDoneView):
+    template_name = 'account/password_reset_done.html'
