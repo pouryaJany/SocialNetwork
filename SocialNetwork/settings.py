@@ -132,3 +132,4 @@ MEDIA_URL = "media/"
 # Google
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.gmail.com'
+EMAIL_HOST_USER = 'janparvarpourya@gmail.com'
