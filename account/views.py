@@ -9,6 +9,7 @@ from post.models import Post
 from django.contrib.auth import views as auth_view
 from django.urls import reverse_lazy
 
+
 # Create your views here.
 
 
@@ -92,3 +93,7 @@ class UserPasswordResetView(auth_view.PasswordResetView):
 
 class UserPasswordResetDoneView(auth_view.PasswordResetDoneView):
     template_name = 'account/password_reset_done.html'
+
+
+class UserPasswordResetConfirmView(auth_view.PasswordResetConfirmView):
+    template_name = 'account/password_reset_confirm.html'
