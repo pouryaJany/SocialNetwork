@@ -83,3 +83,5 @@ class UserProfileView(LoginRequiredMixin, View):
         return render(request, 'account/profile.html', context)
 
 
+class UserPasswordResetView(auth_view.PasswordResetView):
+    pass
